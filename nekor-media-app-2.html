@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#060404">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NEKOR MEDIA">
+<title>NEKOR MEDIA — ⴰⵔⵉⴼ</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #060404;
+  --deep:    #0e0908;
+  --coal:    #1a1210;
+  --ember:   #c8561a;
+  --flame:   #e8722a;
+  --gold:    #d4a030;
+  --sand:    #e8c870;
+  --bone:    #f0e0c0;
+  --mist:    #8a7060;
+  --tif:     #e0b040;
+  --blue:    #1a4060;
+  --sea:     #2a6080;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--black);
+  color:var(--bone);
+  font-family:'Cairo',sans-serif;
+  min-height:100svh;
+  overflow-x:hidden;
+  padding-bottom:5rem;
+}
+
+/* ── LANG SWITCHER ── */
+.lang-bar{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.7rem 1.2rem;
+  background:linear-gradient(to bottom,rgba(6,4,4,0.98),transparent);
+}
+.brand{
+  display:flex;align-items:center;gap:0.6rem;
+  font-size:1rem;font-weight:900;letter-spacing:0.08em;
+  color:var(--bone);
+}
+.brand-dot{
+  width:0.55rem;height:0.55rem;border-radius:50%;
+  background:var(--ember);
+  box-shadow:0 0 8px var(--ember);
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+.brand sub{font-size:0.55rem;color:var(--tif);letter-spacing:0.2em;font-weight:300}
+
+.langs{display:flex;gap:0.3rem}
+.lang-btn{
+  background:none;border:1px solid rgba(255,255,255,0.12);
+  color:var(--mist);font-family:'Cairo',sans-serif;font-size:0.65rem;
+  font-weight:600;letter-spacing:0.1em;padding:0.3rem 0.55rem;
+  border-radius:2px;cursor:pointer;transition:all 0.2s;
+}
+.lang-btn.active{border-color:var(--ember);color:var(--ember)}
+
+/* ── HERO FEATURE ── */
+.hero{
+  position:relative;min-height:75svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1.5rem 1.2rem 2rem;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(6,4,4,1) 0%, rgba(6,4,4,0.6) 40%, transparent 70%),
+    linear-gradient(135deg, #1a0e08 0%, #0a1520 50%, #080a06 100%);
+}
+/* Animated Rif mountain silhouette via CSS */
+.hero-mountains{
+  position:absolute;bottom:0;left:0;right:0;height:45%;
+  background:
+    radial-gradient(ellipse 30% 80% at 15% 100%, #0e0a06 0%, transparent 60%),
+    radial-gradient(ellipse 40% 90% at 45% 100%, #12100a 0%, transparent 55%),
+    radial-gradient(ellipse 35% 70% at 75% 100%, #0e0c08 0%, transparent 60%),
+    radial-gradient(ellipse 25% 60% at 90% 100%, #0a0806 0%, transparent 65%);
+  opacity:0.9;
+}
+.hero-glow{
+  position:absolute;top:20%;left:50%;transform:translateX(-50%);
+  width:60%;height:30%;
+  background:radial-gradient(ellipse, rgba(200,86,26,0.15) 0%, transparent 70%);
+  animation:glow-pulse 4s ease-in-out infinite;
+}
+@keyframes glow-pulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}}
+
+.hero-badge{
+  position:relative;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.6rem;letter-spacing:0.3em;color:var(--ember);
+  text-transform:uppercase;margin-bottom:0.8rem;
+}
+.badge-pill{
+  background:var(--ember);color:white;
+  font-size:0.55rem;font-weight:700;letter-spacing:0.1em;
+  padding:0.15rem 0.5rem;border-radius:20px;
+}
+.hero-title{
+  position:relative;
+  font-family:'Amiri',serif;
+  font-size:clamp(1.8rem,8vw,3.5rem);
+  line-height:1.15;color:var(--bone);
+  margin-bottom:0.5rem;
+}
+.hero-title strong{color:var(--gold)}
+.hero-tif{
+  position:relative;
+  font-size:0.85rem;color:var(--tif);
+  letter-spacing:0.25em;margin-bottom:0.8rem;opacity:0.75;
+}
+.hero-meta{
+  position:relative;
+  display:flex;gap:1rem;align-items:center;
+  font-size:0.72rem;color:var(--mist);margin-bottom:1.2rem;
+}
+.hero-meta span{display:flex;align-items:center;gap:0.3rem}
+.hero-actions{position:relative;display:flex;gap:0.7rem}
+.btn-play{
+  display:flex;align-items:center;gap:0.5rem;
+  background:var(--bone);color:var(--black);
+  border:none;padding:0.8rem 1.5rem;
+  font-family:'Cairo',sans-serif;font-size:0.85rem;font-weight:700;
+  border-radius:2px;cursor:pointer;transition:transform 0.15s,background 0.2s;
+}
+.btn-play:active{transform:scale(0.96)}
+.btn-info{
+  display:flex;align-items:center;gap:0.5rem;
+  background:rgba(255,255,255,0.15);color:var(--bone);
+  border:none;padding:0.8rem 1.2rem;
+  font-family:'Cairo',sans-serif;font-size:0.85rem;font-weight:600;
+  border-radius:2px;cursor:pointer;backdrop-filter:blur(8px);
+  transition:transform 0.15s;
+}
+.btn-info:active{transform:scale(0.96)}
+
+/* ── SECTION ROWS ── */
+.row{padding:0 0 1.5rem}
+.row-header{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:0 1.2rem 0.8rem;
+}
+.row-title{
+  font-size:0.95rem;font-weight:700;color:var(--bone);
+  display:flex;align-items:center;gap:0.5rem;
+}
+.row-title-tif{font-size:0.7rem;color:var(--tif);opacity:0.7;font-weight:400}
+.row-all{font-size:0.7rem;color:var(--ember);cursor:pointer;letter-spacing:0.05em}
+
+/* horizontal scroll cards */
+.cards-scroll{
+  display:flex;gap:0.7rem;overflow-x:auto;
+  padding:0 1.2rem 0.5rem;
+  scrollbar-width:none;scroll-snap-type:x mandatory;
+}
+.cards-scroll::-webkit-scrollbar{display:none}
+
+/* standard card */
+.card{
+  flex-shrink:0;width:9rem;scroll-snap-align:start;
+  cursor:pointer;position:relative;
+  border-radius:3px;overflow:hidden;
+  transition:transform 0.2s;
+}
+.card:active{transform:scale(0.94)}
+.card-thumb{
+  width:100%;aspect-ratio:16/9;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;position:relative;overflow:hidden;
+}
+.card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(6,4,4,0.9) 0%,transparent 60%);
+}
+.card-cat{
+  position:absolute;top:0.4rem;right:0.4rem;
+  font-size:0.55rem;font-weight:700;letter-spacing:0.1em;
+  padding:0.15rem 0.4rem;border-radius:20px;
+  text-transform:uppercase;
+}
+.card-dur{
+  position:absolute;bottom:0.4rem;left:0.4rem;
+  font-size:0.6rem;color:rgba(240,224,192,0.7);
+}
+.card-body{padding:0.5rem 0.3rem}
+.card-name{font-size:0.78rem;font-weight:600;color:var(--bone);line-height:1.3;margin-bottom:0.15rem}
+.card-sub{font-size:0.65rem;color:var(--mist)}
+
+/* wide card (featured row) */
+.card-wide{width:13rem}
+.card-wide .card-thumb{aspect-ratio:16/9}
+
+/* portrait card (artists) */
+.card-portrait{width:6.5rem}
+.card-portrait .card-thumb{aspect-ratio:2/3;font-size:2.5rem}
+.card-portrait .card-body{text-align:center}
+
+/* ── CATEGORY TABS ── */
+.cat-tabs{
+  display:flex;gap:0.5rem;overflow-x:auto;
+  padding:0.5rem 1.2rem 1rem;scrollbar-width:none;
+}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-tab{
+  flex-shrink:0;
+  display:flex;align-items:center;gap:0.4rem;
+  background:var(--coal);border:1px solid rgba(255,255,255,0.08);
+  color:var(--mist);font-family:'Cairo',sans-serif;
+  font-size:0.72rem;font-weight:600;
+  padding:0.45rem 0.9rem;border-radius:20px;cursor:pointer;
+  transition:all 0.2s;white-space:nowrap;
+}
+.cat-tab.active{background:var(--ember);border-color:var(--ember);color:white}
+.cat-tab .tab-icon{font-size:0.9rem}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:rgba(6,4,4,0.97);backdrop-filter:blur(16px);
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;padding:0.5rem 0 calc(0.5rem + env(safe-area-inset-bottom));
+}
+.bnav{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:0.2rem;
+  background:none;border:none;cursor:pointer;
+  color:var(--mist);padding:0.4rem;transition:color 0.2s;
+}
+.bnav.active{color:var(--ember)}
+.bnav-icon{font-size:1.15rem;line-height:1}
+.bnav-label{font-family:'Cairo',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:0.04em}
+
+/* ── PAGES ── */
+.page{display:none;animation:fadein 0.35s ease}
+.page.active{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SEARCH PAGE ── */
+.search-wrap{padding:4.5rem 1.2rem 1rem}
+.search-box{
+  display:flex;align-items:center;gap:0.6rem;
+  background:var(--coal);border:1px solid rgba(255,255,255,0.1);
+  border-radius:4px;padding:0.75rem 1rem;margin-bottom:1.2rem;
+}
+.search-box input{
+  flex:1;background:none;border:none;outline:none;
+  color:var(--bone);font-family:'Cairo',sans-serif;font-size:0.9rem;
+}
+.search-box input::placeholder{color:var(--mist)}
+.search-icon{font-size:1rem;color:var(--mist)}
+
+.genres-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;
+}
+.genre-card{
+  border-radius:4px;padding:1rem;cursor:pointer;
+  display:flex;flex-direction:column;gap:0.3rem;
+  transition:transform 0.15s;min-height:5rem;position:relative;overflow:hidden;
+}
+.genre-card:active{transform:scale(0.96)}
+.genre-emoji{font-size:1.8rem}
+.genre-name{font-size:0.8rem;font-weight:700;color:white}
+.genre-count{font-size:0.65rem;color:rgba(255,255,255,0.6)}
+
+/* ── UPLOAD PAGE ── */
+.upload-wrap{padding:4.5rem 1.2rem 1rem}
+.upload-hero{
+  background:var(--coal);border:2px dashed rgba(200,86,26,0.3);
+  border-radius:6px;padding:2.5rem 1.5rem;text-align:center;
+  margin-bottom:1.5rem;cursor:pointer;transition:border-color 0.2s;
+}
+.upload-hero:hover{border-color:var(--ember)}
+.upload-icon{font-size:2.5rem;margin-bottom:0.8rem}
+.upload-title{font-size:1rem;font-weight:700;color:var(--bone);margin-bottom:0.3rem}
+.upload-sub{font-size:0.78rem;color:var(--mist);line-height:1.6}
+
+.form-group{margin-bottom:1rem}
+.form-label{
+  display:block;font-size:0.72rem;font-weight:600;
+  color:var(--mist);letter-spacing:0.1em;margin-bottom:0.4rem;
+}
+.form-input{
+  width:100%;background:var(--coal);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:3px;padding:0.75rem 1rem;
+  color:var(--bone);font-family:'Cairo',sans-serif;font-size:0.85rem;
+  outline:none;transition:border-color 0.2s;
+}
+.form-input:focus{border-color:var(--ember)}
+select.form-input option{background:var(--coal)}
+.form-submit{
+  width:100%;background:var(--ember);color:white;
+  border:none;padding:0.9rem;border-radius:3px;
+  font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:700;
+  cursor:pointer;transition:background 0.2s,transform 0.15s;margin-top:0.5rem;
+}
+.form-submit:active{transform:scale(0.97);background:#a84516}
+
+/* ── PROFILE PAGE ── */
+.profile-wrap{padding:4.5rem 1.2rem 1rem}
+.profile-header{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.5rem;background:var(--coal);border-radius:6px;margin-bottom:1.5rem;
+}
+.profile-avatar{
+  width:4rem;height:4rem;border-radius:50%;
+  background:linear-gradient(135deg,var(--ember),var(--gold));
+  display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+  flex-shrink:0;
+}
+.profile-name{font-size:1rem;font-weight:700;color:var(--bone);margin-bottom:0.2rem}
+.profile-handle{font-size:0.72rem;color:var(--tif)}
+
+.profile-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0.7rem;margin-bottom:1.5rem;
+}
+.stat-box{
+  background:var(--coal);border-radius:4px;padding:0.9rem;text-align:center;
+}
+.stat-num{font-size:1.2rem;font-weight:900;color:var(--gold);display:block}
+.stat-lbl{font-size:0.6rem;color:var(--mist);letter-spacing:0.1em}
+
+.settings-list{background:var(--coal);border-radius:6px;overflow:hidden}
+.setting-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.05);
+  cursor:pointer;
+}
+.setting-row:last-child{border-bottom:none}
+.setting-label{font-size:0.85rem;color:var(--bone);display:flex;align-items:center;gap:0.6rem}
+.setting-arrow{color:var(--mist);font-size:0.8rem}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);
+  display:flex;align-items:flex-end;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.modal{
+  width:100%;background:var(--deep);
+  border-radius:12px 12px 0 0;padding:1.5rem 1.2rem 2rem;
+  transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.32,0.72,0,1);
+  max-height:85svh;overflow-y:auto;
+}
+.modal-overlay.show .modal{transform:translateY(0)}
+.modal-handle{
+  width:2.5rem;height:3px;background:rgba(255,255,255,0.2);
+  border-radius:2px;margin:0 auto 1.2rem;
+}
+.modal-thumb{
+  width:100%;aspect-ratio:16/9;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:4rem;margin-bottom:1rem;
+  background:linear-gradient(135deg,var(--coal),var(--deep));
+}
+.modal-title{font-family:'Amiri',serif;font-size:1.4rem;color:var(--bone);margin-bottom:0.4rem}
+.modal-meta{font-size:0.72rem;color:var(--mist);margin-bottom:1rem;display:flex;gap:0.8rem}
+.modal-desc{font-size:0.85rem;color:var(--bone);line-height:1.9;margin-bottom:1.2rem;font-family:'Amiri',serif}
+.modal-play{
+  width:100%;background:var(--ember);color:white;
+  border:none;padding:0.9rem;border-radius:3px;
+  font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:700;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;
+}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:5.5rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ember);color:white;
+  font-family:'Cairo',sans-serif;font-size:0.8rem;font-weight:600;
+  padding:0.6rem 1.2rem;border-radius:20px;
+  opacity:0;transition:all 0.3s;pointer-events:none;white-space:nowrap;z-index:400;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── COLORS per category ── */
+.c-doc{background:linear-gradient(135deg,#1a2a3a,#0e1820)}
+.c-music{background:linear-gradient(135deg,#2a1a08,#1a0e04)}
+.c-poetry{background:linear-gradient(135deg,#1a0a20,#100814)}
+.c-art{background:linear-gradient(135deg,#0a1a10,#061008)}
+.c-rif{background:linear-gradient(135deg,#2a1000,#180800)}
+
+.tag-doc{background:rgba(42,100,160,0.9);color:#a0d0ff}
+.tag-music{background:rgba(200,86,26,0.9);color:#ffd0a0}
+.tag-poetry{background:rgba(120,60,180,0.9);color:#e0c0ff}
+.tag-art{background:rgba(40,140,80,0.9);color:#a0ffc0}
+.tag-rif{background:rgba(200,160,0,0.9);color:#fff0a0}
+
+/* page-specific top padding */
+#page-home{padding-top:3.5rem}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="lang-bar">
+  <div class="brand">
+    <div class="brand-dot"></div>
+    NEKOR MEDIA
+    <sub>ⴰⵔⵉⴼ</sub>
+  </div>
+  <div class="langs">
+    <button class="lang-btn active" onclick="setLang('ar')">ع</button>
+    <button class="lang-btn" onclick="setLang('tif')">ⴰ</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: HOME ══════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO FEATURE -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-mountains"></div>
+    <div class="hero-badge">
+      <span class="badge-pill" data-i="new">جديد</span>
+      <span data-i="doc_label">فيلم وثائقي</span>
+    </div>
+    <h1 class="hero-title" data-i="hero_title">أريف — <strong>أرض الأحرار</strong></h1>
+    <p class="hero-tif">ⴰⵔⵉⴼ · ⵜⴰⵎⴰⵣⵉⵖⵜ · ⵏⴻⴽⵓⵔ</p>
+    <div class="hero-meta">
+      <span>🎬 <span data-i="doc_label">وثائقي</span></span>
+      <span>⏱ 48 <span data-i="min">د</span></span>
+      <span>📍 <span data-i="rif">الريف</span></span>
+    </div>
+    <div class="hero-actions">
+      <button class="btn-play" onclick="openModal('hero')">▶ <span data-i="watch">شاهد الآن</span></button>
+      <button class="btn-info" onclick="openModal('hero')">ℹ <span data-i="info">تفاصيل</span></button>
+    </div>
+  </div>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="filterCat(this,'all')"><span class="tab-icon">🌟</span> <span data-i="all">الكل</span></button>
+    <button class="cat-tab" onclick="filterCat(this,'doc')"><span class="tab-icon">🎬</span> <span data-i="docs">وثائقي</span></button>
+    <button class="cat-tab" onclick="filterCat(this,'music')"><span class="tab-icon">🎵</span> <span data-i="music">موسيقى</span></button>
+    <button class="cat-tab" onclick="filterCat(this,'poetry')"><span class="tab-icon">📜</span> <span data-i="poetry">شعر</span></button>
+    <button class="cat-tab" onclick="filterCat(this,'art')"><span class="tab-icon">🎨</span> <span data-i="art">فن</span></button>
+  </div>
+
+  <!-- ROW: أحدث الإضافات -->
+  <div class="row" id="row-new">
+    <div class="row-header">
+      <div class="row-title"><span data-i="latest">أحدث الإضافات</span> <span class="row-title-tif">ⴰⵎⴰⵢⵏⵓ</span></div>
+      <span class="row-all" data-i="see_all">عرض الكل</span>
+    </div>
+    <div class="cards-scroll">
+      <div class="card card-wide" onclick="openModal('doc1')">
+        <div class="card-thumb c-doc"><span>🏔️</span><div class="card-overlay"></div><span class="card-cat tag-doc" data-i="doc_label">وثائقي</span><span class="card-dur">48د</span></div>
+        <div class="card-body"><div class="card-name" data-i="doc1_title">إبوققويين — أبناء البحر والصخر</div><div class="card-sub">2025 · الحسيمة</div></div>
+      </div>
+      <div class="card card-wide" onclick="openModal('music1')">
+        <div class="card-thumb c-music"><span>🎵</span><div class="card-overlay"></div><span class="card-cat tag-music" data-i="music">موسيقى</span><span class="card-dur">4:32</span></div>
+        <div class="card-body"><div class="card-name">أريف إينو — لحن الريف</div><div class="card-sub">Najib amazigh · 2025</div></div>
+      </div>
+      <div class="card card-wide" onclick="openModal('art1')">
+        <div class="card-thumb c-art"><span>🎨</span><div class="card-overlay"></div><span class="card-cat tag-art" data-i="art">فن</span><span class="card-dur">معرض</span></div>
+        <div class="card-body"><div class="card-name">لوحات تيفيناغ — الحرف المقدس</div><div class="card-sub">معرض رقمي · 12 لوحة</div></div>
+      </div>
+      <div class="card card-wide" onclick="openModal('poetry1')">
+        <div class="card-thumb c-poetry"><span>📜</span><div class="card-overlay"></div><span class="card-cat tag-poetry" data-i="poetry">شعر</span><span class="card-dur">12د</span></div>
+        <div class="card-body"><div class="card-name">قصيدة الريف — أرض أجدادي</div><div class="card-sub">أحمد الريفي · 2024</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: أفلام وثائقية -->
+  <div class="row" id="row-docs">
+    <div class="row-header">
+      <div class="row-title"><span data-i="docs">الأفلام الوثائقية</span> <span class="row-title-tif">ⵉⴷⵍⵉⵙⴻⵏ</span></div>
+      <span class="row-all" data-i="see_all">عرض الكل</span>
+    </div>
+    <div class="cards-scroll">
+      <div class="card" onclick="openModal('doc1')">
+        <div class="card-thumb c-doc"><span>🏔️</span><div class="card-overlay"></div><span class="card-cat tag-doc" data-i="doc_label">وثائقي</span><span class="card-dur">48د</span></div>
+        <div class="card-body"><div class="card-name">إبوققويين</div><div class="card-sub">2025</div></div>
+      </div>
+      <div class="card" onclick="openModal('doc2')">
+        <div class="card-thumb c-rif"><span>⚔️</span><div class="card-overlay"></div><span class="card-cat tag-rif">تاريخ</span><span class="card-dur">62د</span></div>
+        <div class="card-body"><div class="card-name">معركة أنوال 1921</div><div class="card-sub">2024</div></div>
+      </div>
+      <div class="card" onclick="openModal('doc3')">
+        <div class="card-thumb c-doc"><span>🌊</span><div class="card-overlay"></div><span class="card-cat tag-doc" data-i="doc_label">وثائقي</span><span class="card-dur">35د</span></div>
+        <div class="card-body"><div class="card-name">بحر الريف</div><div class="card-sub">2024</div></div>
+      </div>
+      <div class="card" onclick="openModal('doc4')">
+        <div class="card-thumb c-rif"><span>🦅</span><div class="card-overlay"></div><span class="card-cat tag-rif">تاريخ</span><span class="card-dur">55د</span></div>
+        <div class="card-body"><div class="card-name">الخطابي — الأمير الأحرار</div><div class="card-sub">2023</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: موسيقى -->
+  <div class="row" id="row-music">
+    <div class="row-header">
+      <div class="row-title"><span data-i="music">الموسيقى الأمازيغية</span> <span class="row-title-tif">ⴰⵣⴰⵡⴰⵏ</span></div>
+      <span class="row-all" data-i="see_all">عرض الكل</span>
+    </div>
+    <div class="cards-scroll">
+      <div class="card" onclick="openModal('music1')">
+        <div class="card-thumb c-music"><span>🎵</span><div class="card-overlay"></div><span class="card-cat tag-music" data-i="music">موسيقى</span><span class="card-dur">4:32</span></div>
+        <div class="card-body"><div class="card-name">أريف إينو</div><div class="card-sub">Najib amazigh</div></div>
+      </div>
+      <div class="card" onclick="openModal('music2')">
+        <div class="card-thumb c-music"><span>🪘</span><div class="card-overlay"></div><span class="card-cat tag-music" data-i="music">موسيقى</span><span class="card-dur">3:15</span></div>
+        <div class="card-body"><div class="card-name">بنديرة الريف</div><div class="card-sub">إيقاع تقليدي</div></div>
+      </div>
+      <div class="card" onclick="openModal('music3')">
+        <div class="card-thumb c-music"><span>🎺</span><div class="card-overlay"></div><span class="card-cat tag-music" data-i="music">موسيقى</span><span class="card-dur">5:48</span></div>
+        <div class="card-body"><div class="card-name">ناقوس نكور</div><div class="card-sub">مزمار أمازيغي</div></div>
+      </div>
+      <div class="card" onclick="openModal('music4')">
+        <div class="card-thumb c-music"><span>🎸</span><div class="card-overlay"></div><span class="card-cat tag-music" data-i="music">موسيقى</span><span class="card-dur">6:10</span></div>
+        <div class="card-body"><div class="card-name">أغنية تامورت</div><div class="card-sub">فيوجن ريفي</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: فنانون -->
+  <div class="row">
+    <div class="row-header">
+      <div class="row-title"><span data-i="artists">الفنانون</span> <span class="row-title-tif">ⵉⴼⵓⵍⴽⵉ</span></div>
+      <span class="row-all" data-i="see_all">عرض الكل</span>
+    </div>
+    <div class="cards-scroll">
+      <div class="card card-portrait" onclick="showToast('قريباً — صفحة الفنان')">
+        <div class="card-thumb c-rif"><span>🎤</span><div class="card-overlay"></div></div>
+        <div class="card-body"><div class="card-name">Najib amazigh</div><div class="card-sub">موسيقى · وثائقي</div></div>
+      </div>
+      <div class="card card-portrait" onclick="showToast('قريباً — صفحة الفنان')">
+        <div class="card-thumb c-music"><span>🥁</span><div class="card-overlay"></div></div>
+        <div class="card-body"><div class="card-name">إيمازيغن</div><div class="card-sub">فرقة موسيقية</div></div>
+      </div>
+      <div class="card card-portrait" onclick="showToast('قريباً — صفحة الفنان')">
+        <div class="card-thumb c-poetry"><span>✍️</span><div class="card-overlay"></div></div>
+        <div class="card-body"><div class="card-name">نجمة الريف</div><div class="card-sub">شعر · أدب</div></div>
+      </div>
+      <div class="card card-portrait" onclick="showToast('قريباً — صفحة الفنان')">
+        <div class="card-thumb c-art"><span>🖌️</span><div class="card-overlay"></div></div>
+        <div class="card-body"><div class="card-name">أزول آرت</div><div class="card-sub">رسم · فن بصري</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: شعر -->
+  <div class="row" id="row-poetry">
+    <div class="row-header">
+      <div class="row-title"><span data-i="poetry">الشعر الأمازيغي</span> <span class="row-title-tif">ⵜⴰⵎⴷⵢⴰⵣⵜ</span></div>
+      <span class="row-all" data-i="see_all">عرض الكل</span>
+    </div>
+    <div class="cards-scroll">
+      <div class="card card-wide" onclick="openModal('poetry1')">
+        <div class="card-thumb c-poetry"><span>📜</span><div class="card-overlay"></div><span class="card-cat tag-poetry" data-i="poetry">شعر</span><span class="card-dur">12د</span></div>
+        <div class="card-body"><div class="card-name">قصيدة الريف — أرض أجدادي</div><div class="card-sub">2024</div></div>
+      </div>
+      <div class="card card-wide" onclick="openModal('poetry2')">
+        <div class="card-thumb c-poetry"><span>🌙</span><div class="card-overlay"></div><span class="card-cat tag-poetry" data-i="poetry">شعر</span><span class="card-dur">8د</span></div>
+        <div class="card-body"><div class="card-name">ليلة على جبل نكور</div><div class="card-sub">2023</div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-home -->
+
+<!-- ══════════ PAGE: SEARCH ══════════ -->
+<div id="page-search" class="page">
+  <div class="search-wrap">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="ابحث عن فيلم، أغنية، فنان..." data-i-placeholder="search_ph">
+    </div>
+    <div class="genres-grid">
+      <div class="genre-card c-doc" onclick="showToast('وثائقي')">
+        <span class="genre-emoji">🎬</span>
+        <span class="genre-name" data-i="docs">وثائقي</span>
+        <span class="genre-count">12 محتوى</span>
+      </div>
+      <div class="genre-card c-music" onclick="showToast('موسيقى')">
+        <span class="genre-emoji">🎵</span>
+        <span class="genre-name" data-i="music">موسيقى</span>
+        <span class="genre-count">34 مقطوعة</span>
+      </div>
+      <div class="genre-card c-poetry" onclick="showToast('شعر')">
+        <span class="genre-emoji">📜</span>
+        <span class="genre-name" data-i="poetry">شعر</span>
+        <span class="genre-count">18 قصيدة</span>
+      </div>
+      <div class="genre-card c-art" onclick="showToast('فن')">
+        <span class="genre-emoji">🎨</span>
+        <span class="genre-name" data-i="art">فن</span>
+        <span class="genre-count">27 عمل</span>
+      </div>
+      <div class="genre-card c-rif" onclick="showToast('تاريخ')">
+        <span class="genre-emoji">🏛️</span>
+        <span class="genre-name">تاريخ</span>
+        <span class="genre-count">9 أرشيف</span>
+      </div>
+      <div class="genre-card" style="background:linear-gradient(135deg,#1a1020,#0e0816)" onclick="showToast('مباشر')">
+        <span class="genre-emoji">📡</span>
+        <span class="genre-name">بث مباشر</span>
+        <span class="genre-count">متاح الآن</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: UPLOAD ══════════ -->
+<div id="page-upload" class="page">
+  <div class="upload-wrap">
+    <div class="upload-hero" onclick="showToast('سيتم دعم الرفع قريباً')">
+      <div class="upload-icon">📤</div>
+      <div class="upload-title" data-i="upload_title">انشر محتواك الأمازيغي</div>
+      <div class="upload-sub" data-i="upload_sub">فيديو، صوت، صورة، شعر<br>اضغط لاختيار الملف</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" data-i="content_title">عنوان المحتوى</label>
+      <input class="form-input" type="text" placeholder="اسم الفيلم أو الأغنية...">
+    </div>
+    <div class="form-group">
+      <label class="form-label" data-i="content_cat">الفئة</label>
+      <select class="form-input">
+        <option data-i="doc_label">وثائقي</option>
+        <option data-i="music">موسيقى</option>
+        <option data-i="poetry">شعر</option>
+        <option data-i="art">فن ورسم</option>
+        <option>أرشيف تاريخي</option>
+        <option>مسرح</option>
+        <option>بث مباشر</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">الوصف</label>
+      <textarea class="form-input" rows="3" placeholder="وصف مختصر..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">اللغة</label>
+      <select class="form-input">
+        <option>تاريفيت</option>
+        <option>العربية / الدارجة</option>
+        <option>Español</option>
+        <option>English</option>
+        <option>تاشلحيت</option>
+      </select>
+    </div>
+    <button class="form-submit" onclick="showToast('✅ تم إرسال طلب النشر')">
+      <span data-i="publish">نشر المحتوى</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: PROFILE ══════════ -->
+<div id="page-profile" class="page">
+  <div class="profile-wrap">
+    <div class="profile-header">
+      <div class="profile-avatar">ⴰ</div>
+      <div>
+        <div class="profile-name">NEKOR MEDIA</div>
+        <div class="profile-handle">@najib_amazigh · ⴰⵔⵉⴼ</div>
+      </div>
+    </div>
+    <div class="profile-stats">
+      <div class="stat-box"><span class="stat-num">24</span><span class="stat-lbl" data-i="content">محتوى</span></div>
+      <div class="stat-box"><span class="stat-num">4.2K</span><span class="stat-lbl" data-i="followers">متابع</span></div>
+      <div class="stat-box"><span class="stat-num">18K</span><span class="stat-lbl" data-i="views">مشاهدة</span></div>
+    </div>
+    <div class="settings-list">
+      <div class="setting-row" onclick="showToast('إعدادات الحساب')"><span class="setting-label">👤 <span data-i="account">الحساب</span></span><span class="setting-arrow">←</span></div>
+      <div class="setting-row" onclick="showPage('upload')"><span class="setting-label">📤 <span data-i="my_content">محتواي</span></span><span class="setting-arrow">←</span></div>
+      <div class="setting-row" onclick="showToast('الإشعارات')"><span class="setting-label">🔔 <span data-i="notifs">الإشعارات</span></span><span class="setting-arrow">←</span></div>
+      <div class="setting-row" onclick="showToast('اللغة')"><span class="setting-label">🌐 <span data-i="lang_set">اللغة</span></span><span class="setting-arrow">←</span></div>
+      <div class="setting-row" onclick="showToast('جودة الفيديو')"><span class="setting-label">📺 <span data-i="quality">جودة البث</span></span><span class="setting-arrow">←</span></div>
+      <div class="setting-row" onclick="showToast('عن التطبيق')"><span class="setting-label">ℹ️ <span data-i="about_app">عن NEKOR MEDIA</span></span><span class="setting-arrow">←</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ BOTTOM NAV ══════════ -->
+<nav class="bottom-nav">
+  <button class="bnav active" id="bnav-home" onclick="showPage('home')">
+    <span class="bnav-icon">🏠</span><span class="bnav-label" data-i="home">الرئيسية</span>
+  </button>
+  <button class="bnav" id="bnav-search" onclick="showPage('search')">
+    <span class="bnav-icon">🔍</span><span class="bnav-label" data-i="search">بحث</span>
+  </button>
+  <button class="bnav" id="bnav-upload" onclick="showPage('upload')">
+    <span class="bnav-icon">📤</span><span class="bnav-label" data-i="publish">نشر</span>
+  </button>
+  <button class="bnav" id="bnav-profile" onclick="showPage('profile')">
+    <span class="bnav-icon">👤</span><span class="bnav-label" data-i="profile">حسابي</span>
+  </button>
+</nav>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-body">
+    <div class="modal-handle"></div>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── i18n ── */
+const T = {
+  ar:{
+    new:'جديد', doc_label:'وثائقي', min:'د', rif:'الريف',
+    watch:'شاهد الآن', info:'تفاصيل', all:'الكل', docs:'وثائقي',
+    music:'موسيقى', poetry:'شعر', art:'فن', latest:'أحدث الإضافات',
+    see_all:'عرض الكل', artists:'الفنانون', upload_title:'انشر محتواك الأمازيغي',
+    upload_sub:'فيديو، صوت، صورة، شعر\nاضغط لاختيار الملف',
+    content_title:'عنوان المحتوى', content_cat:'الفئة', publish:'نشر المحتوى',
+    home:'الرئيسية', search:'بحث', profile:'حسابي',
+    account:'الحساب', my_content:'محتواي', notifs:'الإشعارات',
+    lang_set:'اللغة', quality:'جودة البث', about_app:'عن NEKOR MEDIA',
+    content:'محتوى', followers:'متابع', views:'مشاهدة',
+    doc1_title:'إبوققويين — أبناء البحر والصخر', search_ph:'ابحث عن فيلم، أغنية، فنان...',
+    play_now:'▶ شاهد الآن', add_list:'+ قائمتي'
+  },
+  tif:{
+    new:'ⴰⵎⴰⵢⵏⵓ', doc_label:'ⵉⴷⵍⵉⵙ', min:'ⵜ', rif:'ⴰⵔⵉⴼ',
+    watch:'ⵥⵕ ⴷⴰⴷⴷⴰ', info:'ⵉⵙⴰⵍ', all:'ⴽⵓⵍⵍⵓ', docs:'ⵉⴷⵍⵉⵙⴻⵏ',
+    music:'ⴰⵣⴰⵡⴰⵏ', poetry:'ⵜⴰⵎⴷⵢⴰⵣⵜ', art:'ⵜⴰⵙⵏⵉⵍⵙⵜ', latest:'ⵉⴼⴼⵓⵙ',
+    see_all:'ⵥⵕ ⴽⵓⵍⵍⵓ', artists:'ⵉⴼⵓⵍⴽⵉ', upload_title:'ⴱⴹⴹⵓ ⵜⴰⵎⵓⵙⵙⵏⵉⵜ',
+    upload_sub:'ⵉⴷⵍⵉⵙ, ⴰⵣⴰⵡⴰⵏ, ⵜⴰⵡⵍⴰⴼⵜ',
+    content_title:'ⴰⵙⵎⵉ ⵏ ⵜⵎⵓⵙⵙⵏⵉⵜ', content_cat:'ⴰⵏⴰⵡ', publish:'ⵙⵉⵍⵖ',
+    home:'ⴰⵖⵔⵎ', search:'ⵔⵣⵓ', profile:'ⵉⵙⴰⵍ ⵉⵏⵓ',
+    account:'ⴰⵃⵙⴰⴱ', my_content:'ⵜⴰⵎⵓⵙⵙⵏⵉⵜ ⵉⵏⵓ', notifs:'ⵉⵏⴱⵉⴹⴰⵜⴻⵏ',
+    lang_set:'ⵜⵓⵜⵍⴰⵢⵜ', quality:'ⴰⵥⴰⵡⴰⵏ', about_app:'ⵅⴼ NEKOR',
+    content:'ⵜⴰⵎⵓⵙⵙⵏⵉⵜ', followers:'ⵉⵎⵓⵙⵙⵓⵜⴻⵏ', views:'ⵉⵜⵜⵓⵥⵔⴰ',
+    doc1_title:'ⵉⴱⵓⵇⵇⵓⵢⴻⵏ', search_ph:'ⵔⵣⵓ...', play_now:'▶ ⵥⵕ', add_list:'+ ⵜⴰⵍⵖⴰ'
+  },
+  es:{
+    new:'Nuevo', doc_label:'Documental', min:'min', rif:'Rif',
+    watch:'Ver ahora', info:'Detalles', all:'Todo', docs:'Documentales',
+    music:'Música', poetry:'Poesía', art:'Arte', latest:'Últimas adiciones',
+    see_all:'Ver todo', artists:'Artistas', upload_title:'Publica tu contenido amazigh',
+    upload_sub:'Vídeo, audio, imagen, poesía',
+    content_title:'Título del contenido', content_cat:'Categoría', publish:'Publicar',
+    home:'Inicio', search:'Buscar', profile:'Mi perfil',
+    account:'Cuenta', my_content:'Mi contenido', notifs:'Notificaciones',
+    lang_set:'Idioma', quality:'Calidad', about_app:'Sobre NEKOR MEDIA',
+    content:'contenidos', followers:'seguidores', views:'visualizaciones',
+    doc1_title:'Ibouqqoyen — Hijos del mar y la roca', search_ph:'Buscar película, canción...',
+    play_now:'▶ Ver ahora', add_list:'+ Mi lista'
+  },
+  en:{
+    new:'New', doc_label:'Documentary', min:'min', rif:'Rif',
+    watch:'Watch now', info:'Details', all:'All', docs:'Documentaries',
+    music:'Music', poetry:'Poetry', art:'Art', latest:'Latest additions',
+    see_all:'See all', artists:'Artists', upload_title:'Publish your Amazigh content',
+    upload_sub:'Video, audio, image, poetry',
+    content_title:'Content title', content_cat:'Category', publish:'Publish',
+    home:'Home', search:'Search', profile:'My Profile',
+    account:'Account', my_content:'My content', notifs:'Notifications',
+    lang_set:'Language', quality:'Stream quality', about_app:'About NEKOR MEDIA',
+    content:'contents', followers:'followers', views:'views',
+    doc1_title:'Ibouqqoyen — Sons of Sea & Rock', search_ph:'Search film, song, artist...',
+    play_now:'▶ Watch now', add_list:'+ My list'
+  }
+};
+
+let currentLang = 'ar';
+
+function setLang(lang){
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active', b.textContent.trim().toLowerCase()===lang||
+      (lang==='ar'&&b.textContent==='ع')||(lang==='tif'&&b.textContent==='ⴰ'));
+  });
+  document.documentElement.setAttribute('lang', lang==='ar'||lang==='tif'?'ar':'en');
+  document.documentElement.setAttribute('dir', lang==='en'||lang==='es'?'ltr':'rtl');
+  translateAll();
+}
+
+function translateAll(){
+  const d = T[currentLang]||T.ar;
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k=el.getAttribute('data-i');
+    if(d[k]) el.textContent=d[k];
+  });
+  document.querySelectorAll('[data-i-placeholder]').forEach(el=>{
+    const k=el.getAttribute('data-i-placeholder');
+    if(d[k]) el.placeholder=d[k];
+  });
+}
+
+/* ── PAGES ── */
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.bnav').forEach(b=>b.classList.remove('active'));
+  const nb=document.getElementById('bnav-'+id);
+  if(nb) nb.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+/* ── CATEGORY FILTER ── */
+function filterCat(btn, cat){
+  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const rows={doc:'row-docs',music:'row-music',poetry:'row-poetry'};
+  if(cat==='all'){
+    document.querySelectorAll('.row').forEach(r=>r.style.display='');
+  } else {
+    document.querySelectorAll('.row').forEach(r=>r.style.display='none');
+    document.getElementById('row-new').style.display='';
+    if(rows[cat]) document.getElementById(rows[cat]).style.display='';
+  }
+}
+
+/* ── MODAL DATA ── */
+const MODALS={
+  hero:{emoji:'🎬',title:'أريف — أرض الأحرار',meta:'وثائقي · 48 د · 2025 · الريف',desc:'رحلة تصويرية عميقة في قلب جبال الريف، تستكشف تاريخ القبائل الأمازيغية وحياتها المعاصرة. من قمم نكور إلى شواطئ الحسيمة، يروي الفيلم قصة شعب لا ينسى.',cat:'doc'},
+  doc1:{emoji:'🏔️',title:'إبوققويين — أبناء البحر والصخر',meta:'وثائقي · 48 د · 2025 · الحسيمة',desc:'وثائقي تاريخي حول قبيلة إبوققويين (بوكوية) الريفية في الفترة 1896-1898، استناداً إلى وثائق أرشيف AGA الإسباني ومصادر أولية نادرة. إنتاج NEKOR MEDIA.',cat:'doc'},
+  doc2:{emoji:'⚔️',title:'معركة أنوال 1921',meta:'تاريخي · 62 د · 2024',desc:'يستعرض الفيلم أحداث معركة أنوال التاريخية التي قادها محمد بن عبد الكريم الخطابي، وأسقط فيها جيشاً إسبانياً كاملاً في واحدة من أكبر الهزائم الاستعمارية في تاريخ شمال أفريقيا.',cat:'doc'},
+  doc3:{emoji:'🌊',title:'بحر الريف',meta:'وثائقي · 35 د · 2024',desc:'فيلم قصير يرصد علاقة الإنسان الريفي بالبحر المتوسط عبر التاريخ، من الصيد التقليدي إلى الهجرة المعاصرة. تصوير سينمائي بكاميرا 4K على شواطئ الحسيمة وبادس.',cat:'doc'},
+  doc4:{emoji:'🦅',title:'الخطابي — الأمير الأحرار',meta:'تاريخي · 55 د · 2023',desc:'سيرة محمد بن عبد الكريم الخطابي من ولادته في قبيلة أيث ورياغل حتى وفاته حراً في القاهرة. أول وثائقي ريفي يعتمد مصادر إسبانية وفرنسية ومغربية معاً.',cat:'doc'},
+  music1:{emoji:'🎵',title:'أريف إينو — لحن الريف',meta:'موسيقى · 4:32 · Najib amazigh · 2025',desc:'موسيقى تجمع بين الآلات الأمازيغية التقليدية (البنديرة، الناقوس) وإيقاعات معاصرة. كلمات بالتاريفيت تُغنّي لجبال الريف وبحر الحسيمة. إنتاج NEKOR MEDIA.',cat:'music'},
+  music2:{emoji:'🪘',title:'بنديرة الريف',meta:'موسيقى تقليدية · 3:15 · 2024',desc:'تسجيل لإيقاعات البنديرة الريفية الأصيلة من قرى الريف الشرقي. توثيق صوتي لتراث موشك على الاندثار.',cat:'music'},
+  music3:{emoji:'🎺',title:'ناقوس نكور',meta:'موسيقى · 5:48 · 2024',desc:'عزف منفرد على الغيطة الريفية مع مصاحبة بالبنديرة والقراقب. مستوحى من ألحان قديمة غُنيت في أعراس منطقة نكور.',cat:'music'},
+  music4:{emoji:'🎸',title:'أغنية تامورت',meta:'فيوجن · 6:10 · 2024',desc:'مزج بين الموسيقى الريفية التقليدية وآلات الجاز والغيتار. تامورت (الوطن) بالتاريفيت — أغنية تحكي الغربة والحنين.',cat:'music'},
+  art1:{emoji:'🎨',title:'لوحات تيفيناغ — الحرف المقدس',meta:'معرض رقمي · 12 لوحة · 2025',desc:'معرض رقمي يضم 12 لوحة تشكيلية مستوحاة من حروف تيفيناغ الأمازيغية. أعمال فنية تجمع الخط التقليدي والتجريد المعاصر. فن رقمي وأكريليك.',cat:'art'},
+  poetry1:{emoji:'📜',title:'قصيدة الريف — أرض أجدادي',meta:'شعر · 12 د · 2024',desc:'قصيدة مُلقاة باللغتين التاريفيت والعربية، تستحضر ذاكرة الريف وأجداده الأمازيغ. إلقاء حي أمام جمهور في الحسيمة.',cat:'poetry'},
+  poetry2:{emoji:'🌙',title:'ليلة على جبل نكور',meta:'شعر · 8 د · 2023',desc:'قصيدة نثرية بالدارجة الريفية تصف ليلة صيف على سفوح جبل نكور، بين النجوم وصوت الجداول وحكايات الأجداد.',cat:'poetry'},
+};
+
+function openModal(id){
+  const d=MODALS[id];if(!d)return;
+  const ln=T[currentLang]||T.ar;
+  document.getElementById('modal-content').innerHTML=`
+    <div class="modal-thumb c-${d.cat||'doc'}">${d.emoji}</div>
+    <div class="modal-title">${d.title}</div>
+    <div class="modal-meta">${d.meta.split('·').map(s=>`<span>${s.trim()}</span>`).join('')}</div>
+    <div class="modal-desc">${d.desc}</div>
+    <button class="modal-play" onclick="showToast('${ln.watch||'شاهد الآن'} — قريباً 🎬');closeModal()">
+      ▶ ${ln.watch||'شاهد الآن'}
+    </button>
+  `;
+  document.getElementById('modal').classList.add('show');
+}
+function closeModal(e){
+  if(!e||e.target===document.getElementById('modal'))
+    document.getElementById('modal').classList.remove('show');
+}
+
+/* ── TOAST ── */
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+/* INIT */
+translateAll();
+</script>
+</body>
+</html>
